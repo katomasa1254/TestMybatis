@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE generatorConfiguration
+	PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN"
+	"http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
+
+<generatorConfiguration>
+
+	<context id="context1" targetRuntime="MyBatis3DynamicSql">
+
+		<property name="javaFileEncoding" value="utf-8"/>
+
+		<plugin type="org.mybatis.generator.plugins.RowBoundsPlugin"/>
+		<plugin type="org.mybatis.generator.plugins.EqualsHashCodePlugin"/>
+		<plugin type="org.mybatis.generator.plugins.FluentBuilderMethodsPlugin"/>
+		<plugin type="org.mybatis.generator.plugins.SerializablePlugin"/>
+		<plugin type="org.mybatis.generator.plugins.ToStringPlugin"/>
+		<plugin type="org.mybatis.generator.plugins.VirtualPrimaryKeyPlugin"/>
+
+		<commentGenerator>
+			<property name="suppressAllComments" value="true"/>
+		</commentGenerator>
+
+		<jdbcConnection driverClass="org.postgresql.Driver"
+										connectionURL="jdbc:postgresql://localhost:5433/postgres" userId="postgres"
+										password="postgres"/>
+
+		<javaTypeResolver>
+			<property name="useJSR310Types" value="true"/>
+		</javaTypeResolver>
+
+		<javaModelGenerator targetPackage="com.example.db" targetProject="src/main/java">
+			<property name="trimStrings" value="true"/>
+			<property name="constructorBased" value="true"/>
+			<property name="enableSubPackages" value="true" />
+		</javaModelGenerator>
+
+		<sqlMapGenerator targetPackage="com.example.db" targetProject="src">
+			<property name="enableSubPackages" value="true" />
+		</sqlMapGenerator>
+
+		<javaClientGenerator targetPackage="com.example.db" targetProject="src/main/java" type="ANNOTATEDMAPPER">
+			<property name="enableSubPackages" value="true" />
+		</javaClientGenerator>
+
+		<table tableName="login_user_info">
+		</table>
+
+	</context>
+
+</generatorConfiguration>
